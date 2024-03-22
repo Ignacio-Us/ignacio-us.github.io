@@ -1,0 +1,45 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+header{
+    height: 20%;
+    background-color: #005eff;
+    color: white;
+    padding: 20px;
+    font-weight: bold;
+}
+
+#mas-detalles{
+    background-color: rgb(40, 40, 40);
+    color: white;
+    padding: 20px;
+}
+
+.titulo{
+    font-size: xx-large;
+}
+
+.col{
+    
+    border: groove gray;
+    border-width: 1px;
+    border-radius: 5px;
+    margin: 30px;
+}
+
+button{
+    background-color: #005eff;
+    color: white;
+    border-color: #005eff;
+    border-radius: 3px;
+    height: 30px;
+    width: 70px;
+    margin: 10px;
+}
+img{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
