@@ -4,68 +4,101 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mi Pagina</title>
-    <link href="../css/bootstrap-grid.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/styles-galeria-fotos.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
-    <header class="row">Mi Página</header>
+    <nav class="navbar bg-primary" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand fw-bold">Mi Página</a>
+      </div>
+    </nav> 
 
-    <div class="grid text-center" style="text-align: center">
-      <p class="titulo">Galería de fotos</p>
-      <p>Elige una sección para ver más imágenes</p>
+    <br><br>
+
+    <div class="grid text-center">
+      <p class="fs-2 fw-light">Galería de fotos</p>
+      <p class="text-secondary fs-5 fw-light">Elige una sección para ver más imágenes</p>
     </div>
 
-    <div class="row">
-      <div class="col" id="seccion">
-        <img src="assets\buho.png">
-        <h4>Búhos</h4>
-        <p>¿Sabías que ...? A un grupo de búhos se le llama "parlamento".</p>
-        <button>Ver más</button>
-      </div>
+    <br><br>
 
-      <div class="col" id="seccion">
-        <img src="assets\atardecer.png">
-        <h4>Atardecer</h4>
-        <p>Hermosos y dañinos a la vista</p>
-        <button>Ver más</button>
-      </div>
+    <div class="container">
+      <div class="row justify-content-center">
 
-      <div class="col" id="seccion">
-        <img src="assets\gato.png">
-        <h4>Gatos</h4>
-        <p>Los únicos animales que se domesticaron solos, probablemente.</p>
-        <button>Ver más</button>
+        <div class="col-md-4">
+          <div class="card" style="width: 25rem;"> 
+            <img src="assets\buho.png" class="card-img-top"/>
+            <div class="card-body">
+              <h4 class="card-title">Búhos</h4>
+              <p class="card-text">
+                ¿Sabías que ...? A un grupo de búhos se le llama "parlamento".
+              </p>
+              <a href="#" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
         </div>
+  
+        <div class="col-md-4">
+          <div class="card" style="width: 25rem;"> 
+            <img src="assets\atardecer.png" class="card-img-top"/>
+            <div class="card-body">
+              <h4 class="card-title">Atardeceres</h4>
+              <p class="card-text">Hermosos y dañinos a la vista</p>
+              <a href="#" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+        </div>
+      
+  
+        <div class="col-md-4">
+          <div class="card" style="width: 25rem;"> 
+            <img src="assets\gato.png" class="card-img-top"/>
+            <div class="card-body">
+              <h4 class="card-title">Gatos</h4>
+              <p class="card-text">Los únicos animales que se domesticaron solos, probablemente.</p>
+              <a href="#" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="row aling-items-end" id="mas-detalles">
-      <section class="col-6">
-        <h3>SOBRE NOSOTROS</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-      </section>
-      <section class="col-6">
-        <h3>AGRADECIMIENTOS</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-      </section>
+    <br><br>
+
+    <div class="container-fluid">
+      <div class="row bg-dark">
+        <div class="col-6 text-white p-5">
+          <h4 class="text-uppercase fs-5">Sobre nosotros</h4>
+          <p class="fs-6">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div class="col-6 text-white p-5">
+          <h4 class="text-uppercase fs-5">Agradecimiento</h4>
+          <p class="fs-6">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jque
-ry.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+
+    <div class="container-fluid">
+      <div class="row bg-black text-center align-middle p-2">
+         <p class="text-white">&copy 2022 Copyright: <a href="#" class="text-white">Ufro.cl</a></p>
+      </div>
+    </div>
+
   </body>
 </html>
