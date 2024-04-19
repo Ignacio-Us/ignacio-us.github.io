@@ -74,10 +74,27 @@ function showMessage(mensaje){
   document.body.appendChild(mensajeH4);
 }
 
+
+// Función para detectar colisiones entre los personajes
+function detectarColision(heroe, juglar) {
+  return heroe.x < juglar.x + juglar.ancho &&
+    heroe.x + heroe.ancho > juglar.x &&
+    heroe.y < juglar.y + juglar.alto &&
+    heroe.y + heroe.alto > juglar.y;
+}
+
+// Función para manejar la colisión y comenzar la pelea
+function handleCollision() {
+  if (detectarColision(hero, juglar)) {
+    secuenceFight(hero, juglar);
+  }
+}
+
 document.addEventListener('keydown', function(event) {
   // Verifica si la tecla presionada es la tecla 'Enter' (código de tecla 13)
   if (event.key === 'j') {
       // Lógica a ejecutar cuando se presiona la tecla 'Enter'
+      handleCollision();
       
   }
 });
