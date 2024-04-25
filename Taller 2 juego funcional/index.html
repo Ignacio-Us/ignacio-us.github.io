@@ -1,36 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editing</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Editing</title>
-  <link rel="stylesheet" href="./css/style.css">
-</head>
-
-<body>
-  <div>
+  <body>
     <div>
-      <img src="./assets/hero2.png" alt="player" id="player" class="player">
-      <div class="health-bar" style="float: left;">
-        <div class="health-bar-inner" id="health-bar-character">
+      <div>
+        <img src="./assets/hero2.png" alt="player" id="player" class="player" />
+        <div class="health-bar" style="float: left">
+          <div class="health-bar-inner" id="health-bar-player-one">
+            <div class="name-player-one">H e r o</div>
+          </div>
+        </div>
+      </div>
 
+      <div>
+        <img
+          src="./assets/hero.png"
+          alt="playerTwo"
+          id="playerTwo"
+          class="playerTwo"
+        />
+        <div class="health-bar" style="float: right">
+          <div class="health-bar-inner" id="health-bar-player-two">
+            <div class="name-player-two">J u g l a r</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div>
-      <img src="./assets/hero.png" alt="playerTwo" id="playerTwo" class="playerTwo">
-      <div class="health-bar" style="float: right;">
-        <div class="health-bar-inner" id="health-bar-character">
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="./js/solucion_ejercicio_2.js"></script>
-
-</body>
-
+    <script src="./js/solucion_ejercicio_2.js"></script>
+  </body>
 </html>
