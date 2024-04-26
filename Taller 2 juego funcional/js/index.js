@@ -11,6 +11,8 @@ class Character {
     this.healthBar = document.getElementById(healthBarId);
     this.x = x;
     this.y = y;
+    this.ancho = this.sprite.offsetWidth;
+    this.alto = this.sprite.offsetHeight;
   }
 
   //Verifica si el personaje esta vivo
@@ -104,24 +106,6 @@ const juglar = new Character(
   300
 );
 
-// Función para detectar colisiones entre los personajes
-function detectarColision(heroe, juglar) {
-  return (
-    heroe.x < juglar.x + juglar.ancho &&
-    heroe.x + heroe.ancho > juglar.x &&
-    heroe.y < juglar.y + juglar.alto &&
-    heroe.y + heroe.alto > juglar.y
-  );
-}
-
-// Función para manejar la colisión y comenzar la pelea
-function handleCollision() {
-  console.log(detectarColision(hero, juglar));
-  if (detectarColision(hero, juglar)) {
-    secuenceFight(hero, juglar);
-  }
-}
-
 // Variables para mantener el estado de las teclas presionadas para cada jugador
 const player1KeysPressed = {};
 const player2KeysPressed = {};
@@ -170,42 +154,73 @@ document.addEventListener("keyup", (e) => {
   }
 });
 
+// Función para calcular las dimensiones de gameArea
+function updateGameAreaDimensions() {
+  gameArea.maxX = window.innerWidth - Math.max(hero.ancho, juglar.ancho);
+  gameArea.maxY = window.innerHeight - Math.max(hero.alto, juglar.alto);
+}
+
+const gameArea = {
+  minX: 0,
+  minY: 0,
+  maxX: window.innerWidth - Math.max(hero.ancho, juglar.ancho),
+  maxY: window.innerHeight - Math.max(hero.alto, juglar.alto),
+};
+
 // Función para mover a los jugadores
 function movePlayers() {
+  // Actualizar dimensiones de gameArea
+  updateGameAreaDimensions();
+
   // Movimientos del jugador 1
-  if ("ArrowUp" in player1KeysPressed) {
+  if ("ArrowUp" in player1KeysPressed && hero.y > gameArea.minY) {
     hero.y -= 25;
-    hero.updatePosition();
   }
-  if ("ArrowDown" in player1KeysPressed) {
+  if ("ArrowDown" in player1KeysPressed && hero.y < gameArea.maxY) {
     hero.y += 25;
-    hero.updatePosition();
   }
-  if ("ArrowLeft" in player1KeysPressed) {
+  if ("ArrowLeft" in player1KeysPressed && hero.x > gameArea.minX) {
     hero.x -= 25;
-    hero.updatePosition();
   }
-  if ("ArrowRight" in player1KeysPressed) {
+  if ("ArrowRight" in player1KeysPressed && hero.x < gameArea.maxX) {
     hero.x += 25;
-    hero.updatePosition();
   }
 
   // Movimientos del jugador 2
-  if ("KeyW" in player2KeysPressed) {
+  if ("KeyW" in player2KeysPressed && juglar.y > gameArea.minY) {
     juglar.y -= 25;
-    juglar.updatePosition();
   }
-  if ("KeyS" in player2KeysPressed) {
+  if ("KeyS" in player2KeysPressed && juglar.y < gameArea.maxY) {
     juglar.y += 25;
-    juglar.updatePosition();
   }
-  if ("KeyA" in player2KeysPressed) {
+  if ("KeyA" in player2KeysPressed && juglar.x > gameArea.minX) {
     juglar.x -= 25;
-    juglar.updatePosition();
   }
-  if ("KeyD" in player2KeysPressed) {
+  if ("KeyD" in player2KeysPressed && juglar.x < gameArea.maxX) {
     juglar.x += 25;
-    juglar.updatePosition();
+  }
+
+  // Actualizar posiciones
+  hero.updatePosition();
+  juglar.updatePosition();
+
+  // Verificar colisión y manejar la pelea
+  handleCollision();
+}
+
+// Función para manejar la colisión y comenzar la pelea
+function handleCollision() {
+  // Definir el rango de proximidad (en píxeles)
+  const proximityRange = 50;
+
+  // Calcular la distancia entre los personajes
+  const distanceX = Math.abs(hero.x - juglar.x);
+  const distanceY = Math.abs(hero.y - juglar.y);
+  const distance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
+
+  // Verificar si están lo suficientemente cerca para pelear
+  if (distance <= proximityRange) {
+    secuenceFight(hero, juglar);
   }
 }
 
@@ -215,13 +230,14 @@ function simulateAttack() {
   hero.updateHealthBar();
 }
 
-// Ventana que muestra El comienzo de la pelea
+// Ventana que muestra el comienzo de la pelea
 window.onload = startFight(hero, juglar);
 
 // Llamar a la función movePlayers en un bucle de animación o en un temporizador
 setInterval(movePlayers, 1000 / 30);
 hero.updateHealthBar();
 
+// Funcion de testeo para el sistema de combate
 document.addEventListener("keydown", (e) => {
   const code = e.code;
 
@@ -229,3 +245,4 @@ document.addEventListener("keydown", (e) => {
     secuenceFight(hero, juglar);
   }
 });
+
